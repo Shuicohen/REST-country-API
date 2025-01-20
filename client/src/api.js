@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_BASE_URL = 'http://localhost:5000/api/countries';
+const API_BASE_URL = 'https://rest-country-api-czr2.onrender.com/api/countries';
 
 export const fetchCountries = async () => {
     try {
