@@ -1,0 +1,80 @@
+.search-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1000px;
+    width: 100%;
+    margin: 2rem auto;
+    padding: 1rem;
+    gap: 1rem;
+}
+
+/* Search Input */
+.search-bar input {
+    flex: 1;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--element-bg);
+    color: var(--text-color);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    outline: none;
+}
+
+/* Dropdown Filter */
+.search-bar select {
+    padding: 0.75rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--element-bg);
+    color: var(--text-color);
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    outline: none;
+    appearance: none; /* Removes default browser styles */
+    width: 220px; /* Ensures dropdown width matches design */
+}
+
+/* Style Dropdown Options */
+.search-bar select option {
+    background: var(--element-bg);
+    color: var(--text-color);
+    padding: 10px;
+}
+
+/* Fix Dropdown in Dark Mode */
+.dark-mode .search-bar select {
+    background-color: #2b3945; /* Dark background */
+    color: #ffffff; /* White text */
+}
+
+.dark-mode .search-bar select option {
+    background-color: #2b3945; /* Ensures options have the same dark background */
+    color: #ffffff;
+}
+
+/* Hover & Focus States */
+.search-bar input:hover,
+.search-bar input:focus,
+.search-bar select:hover,
+.search-bar select:focus {
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .search-bar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .search-bar input {
+        width: 100%;
+    }
+
+    .search-bar select {
+        width: 100%;
+    }
+}

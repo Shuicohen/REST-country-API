@@ -1,0 +1,36 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: auto;
+    padding: 1.5rem;
+}
+
+.header button {
+    background-color: var(--element-bg);
+    color: var(--text-color);
+    border: none;
+    padding: 0.75rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* Change Button Text in Dark Mode */
+.dark-mode .header button {
+    background-color: #2b3945;
+    color: #ffffff;
+}
+
+.dark-mode .header button::after {
+    content: " ";
+}
+
+/* Responsive Header */
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
