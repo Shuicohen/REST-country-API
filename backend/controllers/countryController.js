@@ -81,14 +81,30 @@ const getCountryDetails = async (req, res) => {
         // Find additional details from data.json
         const extraInfo = jsonData.find((c) => c.name.toLowerCase() === name.toLowerCase());
 
+        // If the country is not in the database, build the base object from data.json
+        if (!country && extraInfo) {
+            const flagUrl = typeof extraInfo.flags === 'string'
+                ? extraInfo.flags
+                : extraInfo.flags?.png || 'https://via.placeholder.com/150';
+
+            country = {
+                name: extraInfo.name || 'Unknown',
+                population: extraInfo.population || 0,
+                region: extraInfo.region || 'N/A',
+                capital: extraInfo.capital || 'N/A',
+                flag_url: flagUrl,
+                borders: Array.isArray(extraInfo.borders) ? extraInfo.borders : [],
+            };
+        }
+
         if (extraInfo) {
             country = {
-                ...country,
-                nativeName: extraInfo.nativeName || "Not Available",
-                subregion: extraInfo.subregion || "Not Available",
-                topLevelDomain: extraInfo.topLevelDomain || ["Not Available"],
-                currencies: extraInfo.currencies || [{ name: "Not Available" }],
-                languages: extraInfo.languages || [{ name: "Not Available" }],
+                ...(country || {}),
+                nativeName: extraInfo.nativeName || 'Not Available',
+                subregion: extraInfo.subregion || 'Not Available',
+                topLevelDomain: extraInfo.topLevelDomain || ['Not Available'],
+                currencies: extraInfo.currencies || [{ name: 'Not Available' }],
+                languages: extraInfo.languages || [{ name: 'Not Available' }],
             };
         }
 
