@@ -55,7 +55,7 @@ const getAllCountries = async (req, res) => {
         let countries = await db.select('*').from('countries');
 
         if (!countries.length) {
-            const dataPath = path.join(__dirname, 'data.json');
+            const dataPath = path.join(__dirname, '../data.json');
             const jsonData = JSON.parse(fs.readFileSync(dataPath, 'utf8'));
             countries = jsonData;
         }
