@@ -28,7 +28,7 @@ body {
 
 
 
-/* Ensure the container takes full width */
+/* Limit container width to 1200px */
 .app-container {
     width: 100%;
     max-width: 1200px;
