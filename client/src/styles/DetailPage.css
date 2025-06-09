@@ -21,3 +21,9 @@
         padding: 1rem;
     }
 }
+
+@media (max-width: 480px) {
+    .detail-container {
+        padding: 0.5rem;
+    }
+}
