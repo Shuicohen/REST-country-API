@@ -55,6 +55,7 @@ const getAllCountries = async (req, res) => {
         let countries = await db.select('*').from('countries');
 
         if (!countries.length) {
+            // Fallback to the local JSON file when the database is empty
             const dataPath = path.join(__dirname, '../data.json');
             const jsonData = JSON.parse(fs.readFileSync(dataPath, 'utf8'));
             countries = jsonData;
